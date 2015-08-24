@@ -1,0 +1,9 @@
+#config the db
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: Crazy_Restaurant
+  pool: 5
+  username:
+  password:
