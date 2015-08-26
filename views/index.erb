@@ -2,17 +2,17 @@
 <section class="orders">
   <h3 class="subTitle">Make Order</h3>
   <form action="/orders" method="post">
-    <div name="order[party_id]">
+    <div >
       <% @parties.each do |party| %>
-        <input type="checkbox" value="<%= party.id %>">
+        <input name="party_id" type="checkbox" value="<%= party.id %>">
           <%= party.table_number %>
         </input>
       <% end %>
     </div>
-    <div name="order[inventory_item_id]">
+    <div>
       <% @inventory_items.each do |inventory_item| %>
-        <input type="checkbox" value="<%= inventory_item.id %>">
-          <input class="inputQuantity" type="text"></input>
+        <input name="inventory_items[]" type="checkbox" value="<%= inventory_item.id %>">
+          <!-- <input class="inputQuantity" type="text"></input> -->
           <%= inventory_item.name %>
         </input>
       <% end %>
@@ -22,14 +22,6 @@
 
   <div>
     <h3 class="subTitle">Display Order</h3>
-
-    
-
-
-
-
-
-
   </div>
 
 </section>

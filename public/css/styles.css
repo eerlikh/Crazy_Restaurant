@@ -1,5 +1,19 @@
+li {
+  list-style: none;
+}
+body {
+  background-color: lightblue;
+}
 .mainTitle {
-  background-color: red;
+  background-color: gold;
+  color: red;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  height: auto;
+  width: auto;
+  margin: 0 auto;
+  padding: 5px 20px 20px 20px;
+  border: 6px solid red;
 }
 
 .subTitle {
@@ -7,10 +21,6 @@
     border-right: 1px solid black;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-}
-
-li {
-  list-style: none;
 }
 
 .inputQuantity {
