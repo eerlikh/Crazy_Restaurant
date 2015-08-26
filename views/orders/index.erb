@@ -1,0 +1,13 @@
+<h3>All those Orders!</h3>
+
+<a href="/orders/new">New Orders</a>
+
+<ul>
+
+  <% @orders.each do |order| %>
+    <li>
+      <%= order.inventory_item.name %> - <%= order.party.name %>
+    </li>
+  <% end %>
+
+</ul>

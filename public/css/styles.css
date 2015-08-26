@@ -1,0 +1,12 @@
+.inventoryItems {
+  background-color: #DAC6F0;
+}
+.mainTitle {
+  background-color: red;
+}
+.mainButton, input[type=button], input[type=reset], input[type=submit] {
+  background-color: white;
+}
+.inventoryList {
+  background-color: red;
+}

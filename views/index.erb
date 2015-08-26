@@ -1,0 +1,62 @@
+<h2 class="mainTitle"> Crazy Restaurant </h2>
+<section class="inventoryItems">
+  <h3> Inventory Items </h3>
+  <form action="/inventory_items" method="post">
+    <input class="inventoryList" type="text" name="inventory_item[name]" placeholder='...name'>
+    <input class="mainButton" type="submit" value="Request Item!">
+  </form>
+
+  <ul>
+    <% @inventory_items.each do |inventory_item| %>
+      <li>
+        <%= inventory_item.name %>
+        <form action="/inventory_items/<%= inventory_item.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" >Remove</button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="parties">
+  <h3> Parties </h3>
+  <form action="/parties" method="post">
+    <input type="text" name="party[table_number]" placeholder='...name'>
+    <input type="submit" value="Make an Order">
+  </form>
+
+  <ul>
+    <% @parties.each do |party| %>
+      <li>
+        <%= party.table_number %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="orders">
+  <h3>Orders</h3>
+  <form action="/orders" method="post">
+
+    <select name="order[party_id]">
+      <% @parties.each do |party| %>
+        <option value="<%= party.id %>">
+          <%= party.table_number %>
+        </option>
+      <% end %>
+    </select>
+
+    <select name="order[inventory_item_id]">
+      <% @inventory_items.each do |inventory_item| %>
+        <option value="<%= inventory_item.id %>">
+          <%= inventory_item.name %>
+        </option>
+      <% end %>
+    </select>
+
+    <input type="submit" value="ORDER!">
+
+  </form>
+
+</section>

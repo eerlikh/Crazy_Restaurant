@@ -1,0 +1,24 @@
+<h3>New Order</h3>
+
+
+<form action="/orders" method="post">
+
+  <select name="order[party_id]">
+    <% @parties.each do |party| %>
+      <option value="<%= party.id %>">
+        <%= party.table_number %>
+      </option>
+    <% end %>
+  </select>
+
+  <select name="order[inventory_item_id]">
+    <% @inventory_items.each do |inventory_item| %>
+      <option value="<%= inventory_item.id %>">
+        <%= inventory_item.name %>
+      </option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Order It!">
+
+</form>

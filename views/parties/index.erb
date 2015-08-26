@@ -1,0 +1,16 @@
+<h3> Crazy Restaurant </h3>
+<h4>Party Info</h4>
+
+<p>
+  Here are the details:
+</p>
+
+<a href="/parties/new">New Party</a>
+
+<ul>
+  <% @parties.each do |party| %>
+    <li>
+      <%= party.table_number %>
+    </li>
+  <% end %>
+</ul>

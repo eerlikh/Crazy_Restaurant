@@ -1,0 +1,11 @@
+<h3>Inventory Items</h3>
+
+<a href="/inventory_items/new">New</a>
+
+<ul>
+  <% @inventory_items.each do |inventory_item| %>
+    <li>
+      <%= inventory_item.name %>
+    </li>
+  <% end %>
+</ul>

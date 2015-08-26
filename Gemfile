@@ -1,6 +1,6 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'pg'
 gem 'sinatra-activerecord'
+gem 'pg'
 gem 'rake'
