@@ -17,5 +17,12 @@ class PartiesController < ApplicationController
     redirect '/'
   end
 
+  delete '/:id' do
+    # Delete instance here
+    party = Party.find(params[:id])
+    party.orders.each {|order| order.delete }
+    party.delete()
+    redirect '/'
+  end
 
 end

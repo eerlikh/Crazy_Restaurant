@@ -1,12 +1,59 @@
-.inventoryItems {
-  background-color: #DAC6F0;
-}
 .mainTitle {
   background-color: red;
 }
+
+.subTitle {
+  background-color: gold;
+}
+
 .mainButton, input[type=button], input[type=reset], input[type=submit] {
   background-color: white;
 }
+
+.inventoryItems {
+  background-color: #DAC6F0;
+  float: left;
+}
+
+.inventoryInput {
+
+}
+
 .inventoryList {
+
+}
+
+.inventoryListItem {
   background-color: red;
+  float: left;
+  padding: 5px 10px;
+}
+
+.parties {
+  background-color: blue;
+  float: left;
+}
+
+.partyList {
+
+}
+
+.partyListItem {
+  background-color: yellow;
+  float: left;
+}
+
+.orders {
+  background-color: green;
+  float: left;
+  width: 100%
+}
+
+.orderList {
+
+}
+
+.orderListItem {
+  background-color: purple;
+  float: left;
 }
