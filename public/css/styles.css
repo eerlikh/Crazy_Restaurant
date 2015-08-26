@@ -3,7 +3,18 @@
 }
 
 .subTitle {
-  background-color: gold;
+    background-color: gold;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+li {
+  list-style: none;
+}
+
+.inputQuantity {
+  width: 40px;
 }
 
 .mainButton, input[type=button], input[type=reset], input[type=submit] {
@@ -13,6 +24,7 @@
 .inventoryItems {
   background-color: #DAC6F0;
   float: left;
+  width: 320px;
 }
 
 .inventoryInput {
@@ -32,6 +44,8 @@
 .parties {
   background-color: blue;
   float: left;
+  width: 320px;
+
 }
 
 .partyList {

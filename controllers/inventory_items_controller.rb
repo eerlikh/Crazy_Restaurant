@@ -14,7 +14,15 @@ class InventoryItemsController < ApplicationController
   # '/inventory_items'
   post '/' do
     InventoryItem.create(params[:inventory_item])
-    redirect '/'  
+    redirect '/'
+  end
+
+  delete '/:id' do
+    # Delete instance here
+    inventory_item = InventoryItem.find(params[:id])
+    inventory_item.orders.each {|order| order.delete }
+    inventory_item.delete()
+    redirect '/'
   end
 
 
