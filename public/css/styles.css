@@ -1,9 +1,41 @@
-li {
-  list-style: none;
-}
 body {
   background-color: lightblue;
 }
+
+li {
+  list-style: none;
+  margin-bottom: 0px;
+}
+
+input[type="checkbox"]{
+  width: 30px;
+  height: 30px;
+}
+
+/*input[type="checkbox"]{
+cursor: pointer;
+-webkit-appearance: none;
+appearance: none;
+background: #34495E;
+border-radius: 1px;
+box-sizing: border-box;
+position: relative;
+box-sizing: content-box ;
+width: 30px;
+height: 30px;
+border-width: 0;
+transition: all .3s linear;
+}*/
+
+input[type="checkbox"]:checked{
+  background-color: #2ECC71;
+}
+
+input[type="checkbox"]:focus{
+  outline: 0 none;
+  box-shadow: none;
+}
+
 .mainTitle {
   background-color: gold;
   color: red;
@@ -16,20 +48,29 @@ body {
   border: 6px solid red;
 }
 
+.mainButton, input[type=button], input[type=reset], input[type=submit] {
+  background-color: white;
+}
+
+.menuText {
+  font-size: 35px;
+}
+
 .subTitle {
     background-color: gold;
     border-right: 1px solid black;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    padding: 10px 24px;
 }
 
 .inputQuantity {
   width: 40px;
 }
 
-.mainButton, input[type=button], input[type=reset], input[type=submit] {
-  background-color: white;
-}
+/*ul.orderDisplay li:nth-child(even) {
+  background-color: pink;
+}*/
 
 .inventoryItems {
   background-color: #DAC6F0;
@@ -80,4 +121,31 @@ body {
 .orderListItem {
   background-color: purple;
   float: left;
+}
+
+/*----- my tables ------*/
+
+.tableNumber1{
+  background-color: white;
+}
+.tableNumber2{
+  background-color: red;
+}
+.tableNumber3{
+  background-color: blue;
+}
+.tableNumber4{
+  background-color: green;
+}
+.tableNumber5{
+  background-color: pink;
+}
+.tableNumber6{
+  background-color: purple;
+}
+.tableNumber7{
+  background-color: cyan;
+}
+.tableNumber8{
+  background-color: gold;
 }

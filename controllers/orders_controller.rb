@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   # '/orders'
   get '/' do
+    # binding.pry
     @orders = Order.all
     erb :'orders/index'
   end
@@ -15,7 +16,7 @@ class OrdersController < ApplicationController
 
   # '/orders'
   post '/' do
-    binding.pry
+    # binding.pry
     # {"order"=>{"party_id"=>"7"}, "inventory_items"=>["10", "11"]}
 
     party_id = params['party_id']
@@ -27,8 +28,25 @@ class OrdersController < ApplicationController
         inventory_item_id: inventory_item
         })
     end
+  # Order.create(params[:order])
+  redirect '/'
+  end
 
-    # Order.create(params[:order])
+  # '/orders/:id/edit'
+  get ':id/edit' do
+    @order = Order.find(param[:id])
+    erb :'orders/edit'
+  end
+  # '/orders/:id'
+  put ':id' do
+    order = Order.find(param[:id])
+    order.update(params[:cheese])
+    redirect "/orders/#{order.id}"
+  end
+
+  delete '/:id' do
+    # Delete instance here
+    Order.delete(params[:id])
     redirect '/'
   end
 

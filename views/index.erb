@@ -2,18 +2,18 @@
 <section class="orders">
   <h3 class="subTitle">Make Order</h3>
   <form action="/orders" method="post">
-    <div >
+    <div class="menuText" >  Select Table:
       <% @parties.each do |party| %>
         <input name="party_id" type="checkbox" value="<%= party.id %>">
-          <%= party.table_number %>
+         <%= party.table_number %>
         </input>
       <% end %>
     </div>
-    <div>
+    <div class="menuText">
       <% @inventory_items.each do |inventory_item| %>
         <input name="inventory_items[]" type="checkbox" value="<%= inventory_item.id %>">
           <!-- <input class="inputQuantity" type="text"></input> -->
-          <%= inventory_item.name %>
+          <div class="rightSpace"><%= inventory_item.name %></div>
         </input>
       <% end %>
     </div>
@@ -22,6 +22,17 @@
 
   <div>
     <h3 class="subTitle">Display Order</h3>
+    <ul>
+      <% @orders.each do |order| %>
+        <li class="tableNumber<%=order.party.table_number%>">
+          <%= order.inventory_item.name %> - <%=order.party.table_number%>
+          <form action="/orders/<%= order.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button class="mainButton" type="submit" >Remove</button>
+          </form>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
 </section>

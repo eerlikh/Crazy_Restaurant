@@ -17,6 +17,7 @@ class InventoryItemsController < ApplicationController
     redirect '/'
   end
 
+  # '/inventory_items/:id'
   delete '/:id' do
     # Delete instance here
     inventory_item = InventoryItem.find(params[:id])
