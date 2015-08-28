@@ -1,5 +1,12 @@
 <h3> Edit a specific inventory item</h3>
 
-<form action="/inventory_items" method="post">
+<form action="/inventory_items/<%= @inventory_item.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+Name:  <input type="text" name="inventory_item[name]" value="<%= @inventory_item.name %>">
+Cuisine Type:  <input type="text" name="inventory_item[cuisine_type]" value="<%= @inventory_item.cuisine_type %>">
+Nutritional Value:  <input type="text" name="inventory_item[nutritional_value]" value="<%= @inventory_item.nutritional_value %>">
+Description:  <input type="text" name="inventory_item[description]" value="<%= @inventory_item.description %>">
+Price:  <input type="text" name="inventory_item[price]" value="<%= @inventory_item.price %>">
 
+  <input type="submit" value="Update Inventory Item">
 </form>

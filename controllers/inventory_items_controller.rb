@@ -17,6 +17,19 @@ class InventoryItemsController < ApplicationController
     redirect '/'
   end
 
+
+  # '/inventory_items/:id/edit'
+  get '/:id/edit' do
+    @inventory_item = InventoryItem.find(params[:id])
+    erb :'inventory_items/edit'
+  end
+  # '/inventory_items/:id'
+  put '/:id' do
+    inventory_item = InventoryItem.find(params[:id])
+    inventory_item.update(params[:inventory_item])
+    redirect "/inventory_items"
+  end
+
   # '/inventory_items/:id'
   delete '/:id' do
     # Delete instance here

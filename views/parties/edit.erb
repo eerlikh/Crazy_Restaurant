@@ -1,0 +1,9 @@
+<h3> Edit a specific Party</h3>
+
+<form action="/parties/<%= @party.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="party[table_number]" value="<%= @party.table_number %>">
+  <input type="text" name="party[number_of_guests]" value="<%= @party.number_of_guests %>">
+
+  <input type="submit" value="Update Party">
+</form>

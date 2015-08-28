@@ -17,6 +17,18 @@ class PartiesController < ApplicationController
     redirect '/'
   end
 
+  # '/parties/:id/edit'
+  get '/:id/edit' do
+    @party = Party.find(params[:id])
+    erb :'parties/edit'
+  end
+  # '/parties/:id'
+  put '/:id' do
+    party = Party.find(params[:id])
+    party.update(params[:party])
+    redirect "/parties/#{party.id}"
+  end
+
   delete '/:id' do
     # Delete instance here
     party = Party.find(params[:id])

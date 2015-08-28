@@ -1,7 +1,10 @@
 <h2> Edit Order </h2>
 
-<form action="/orders/<%= order.id %>" method="post">
+<form action="/orders/<%= @order.id %>" method="post">
   <input type="hidden" name="_method" value="put">
-  <input type="text" name="order[name]" value="<%= @order.name %>">
+  <input type="text" name="order[paid_status]" value="<%= @order.paid_status %>">
+  <input type="text" name="order[party_id]" value="<%= @order.party_id.table_number %>">
+  <input type="text" name="order[inventory_item_id]" value="<%= @order.inventory_item_id.party_id.name %>">
+
   <input type="submit" value="Update Order">
 </form>

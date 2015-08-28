@@ -2,14 +2,23 @@ body {
   background-color: lightblue;
 }
 
+form {
+  display: inline;
+}
+
+blockquote, dl, figure, form, ol, p, pre, table, ul {
+     margin-bottom: 0px;
+}
+
 li {
   list-style: none;
   margin-bottom: 0px;
 }
 
 input[type="checkbox"]{
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 0px;
 }
 
 /*input[type="checkbox"]{
@@ -26,7 +35,7 @@ height: 30px;
 border-width: 0;
 transition: all .3s linear;
 }*/
-
+/*
 input[type="checkbox"]:checked{
   background-color: #2ECC71;
 }
@@ -34,40 +43,53 @@ input[type="checkbox"]:checked{
 input[type="checkbox"]:focus{
   outline: 0 none;
   box-shadow: none;
-}
+}*/
 
 .mainTitle {
   background-color: gold;
   color: red;
   font-family: 'Pacifico', cursive;
-  text-align: center;
   height: auto;
   width: auto;
-  margin: 0 auto;
-  padding: 5px 20px 20px 20px;
+  padding: 5px 20px 20px 25px;
   border: 6px solid red;
 }
 
 .mainButton, input[type=button], input[type=reset], input[type=submit] {
   background-color: white;
+  margin-left: 25px;
+  border-radius: 0px;
+  width: 250px;
+  height: 50px;
 }
 
 .menuText {
-  font-size: 35px;
+    font-size: 35px;
+    margin-left: 25px;
+    vertical-align: top;
+}
+.displayText {
+  margin-left: 25px;
 }
 
 .subTitle {
-    background-color: gold;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 10px 24px;
+  background-color: gold;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px 24px;
 }
 
 .inputQuantity {
   width: 40px;
 }
 
+.rightSpace{
+  margin-right: 30px;
+  display: inline;
+  vertical-align: top;
+
+}
 /*ul.orderDisplay li:nth-child(even) {
   background-color: pink;
 }*/
@@ -79,7 +101,8 @@ input[type="checkbox"]:focus{
 }
 
 .inventoryInput {
-
+  margin: 0px 25px;
+  border-radius: 0px;
 }
 
 .inventoryList {
@@ -109,8 +132,7 @@ input[type="checkbox"]:focus{
 }
 
 .orders {
-  background-color: green;
-  float: left;
+  background-color: #BDBDBD;
   width: 100%
 }
 

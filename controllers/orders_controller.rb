@@ -33,14 +33,14 @@ class OrdersController < ApplicationController
   end
 
   # '/orders/:id/edit'
-  get ':id/edit' do
-    @order = Order.find(param[:id])
+  get '/:id/edit' do
+    @order = Order.find(params[:id])
     erb :'orders/edit'
   end
   # '/orders/:id'
-  put ':id' do
-    order = Order.find(param[:id])
-    order.update(params[:cheese])
+  put '/:id' do
+    order = Order.find(params[:id])
+    order.update(params[:order])
     redirect "/orders/#{order.id}"
   end
 
