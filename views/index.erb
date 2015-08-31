@@ -39,7 +39,12 @@
             <% party.orders.each do |order| %>
               <div>Order: <%= order.inventory_item.name %> - <span class="price"><%= order.inventory_item.price %></span>$</div>
             <% end %>
-            <div class="total menuText"> Total: </div>
+            <div class="total menuText"> Total:
+
+            <%= @total %>
+
+
+            </div>
             <form action="/parties/<%= party.id %>" method="post">
               <input type="hidden" name="_method" value="delete">
               <button class="tableButton" type="submit" >Transaction Complete</button>
@@ -63,7 +68,7 @@
           <a class="btn" href="parties/<%= party.id %>/edit"><button class="tableButton"> Edit</button></a>
           <form action="/parties/<%= party.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
-            <button class="mainButton" type="submit">Remove</button>
+            <button class="tableButton" type="submit">Remove</button>
           </form>
         </li>
       <% end %>
@@ -92,7 +97,7 @@
           <button class="tableButton" href="inventory_items/<%= inventory_item.id %>/edit"> Edit </button>
           <form action="/inventory_items/<%= inventory_item.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
-            <button class="mainButton" type="submit" >Remove</button>
+            <button class="tableButton" type="submit" >Remove</button>
           </form>
         </li>
       <% end %>

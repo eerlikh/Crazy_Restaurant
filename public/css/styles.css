@@ -52,7 +52,7 @@ input[type="checkbox"] {
   background-color: gold;
   color: black;
   float: right;
-  border-radius: 10px 10px 0px 0px;
+  /*border-radius: 10px 10px 0px 0px;*/
   text-decoration: none;
   padding: 5px 10px 3px 10px;
   margin-left: 10px;
@@ -64,7 +64,7 @@ input[type="checkbox"] {
   background-color: red;
   color: gold;
   float: right;
-  border-radius: 10px 10px 0px 0px;
+  /*border-radius: 10px 10px 0px 0px;*/
   text-decoration: none;
   padding: 5px 10px 3px 10px;
   margin-left: 10px;
@@ -163,7 +163,7 @@ input[type="checkbox"] {
 }
 
 .table {
-  background-color: Lavender;
+  background-color: rgba(255, 255, 255, 1);
   margin-right: 25px;
   margin-left: 25px;
   margin-bottom: 25px;

@@ -23,8 +23,17 @@ class PartiesController < ApplicationController
     erb :'parties/edit'
   end
   # '/parties/:id'
-  put '/:id' do
-    party = Party.find(params[:id])
+    put '/:id' do
+      def total(orders)
+            total = 0
+            orders.each do |order|
+            total += order.inventory_item.price
+          end
+        total
+      end
+    @total = total
+    @party = Party.find(params[:id])
+    @orders = @party.inventory_items
     party.update(params[:party])
     redirect "/parties/#{party.id}"
   end
