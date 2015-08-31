@@ -1,92 +1,101 @@
-<h2 class="mainTitle"> Crazy Restaurant </h2>
-<section class="orders">
-  <h3 class="subTitle">Make Order</h3>
-  <form action="/orders" method="post">
-    <div class="menuText" >  Select Table:
-      <% @parties.each do |party| %>
-        <div class="rightSpace">
-          <input name="party_id" type="checkbox" value="<%= party.id %>">
-           <%= party.table_number %>
-          </input>
-        </div>
-      <% end %>
-    </div>
-    <div class="menuText">
-      <% @inventory_items.each do |inventory_item| %>
-        <div class="rightSpace">
-          <input name="inventory_items[]" type="checkbox" value="<%= inventory_item.id %>">
-            <!-- <input class="inputQuantity" type="text"></input> -->
-            <%= inventory_item.name %>
-          </input>
-        </div>
-      <% end %>
-    </div>
-    <input class="mainButton" type="submit" value="ORDER!">
-  </form>
+<div class="container">
+  <div class="row">
+    <h2 class="mainTitle">Crazy Restaurant</h2>
+  </div>
+  <div class="row">
+    <a class="navBarButton" href="orders"> Chef Screen </a>
+    <a class="navBarButton" href="/"> Wait Staff Screen </a>
+  </div>
+  <section class="orders row">
+    <h3 class="subTitle">Make Order</h3>
+    <form action="/orders" method="post">
+      <div class="orderList menuText" >  Select Table:
+        <% @parties.each do |party| %>
+          <div class="checkboxItem">
+            <input name="party_id" type="checkbox" value="<%= party.id %>">
+             <%= party.table_number %>
+            </input>
+          </div>
+        <% end %>
+      </div>
+      <div class="orderList menuText">  Select Food Item:
+        <% @inventory_items.each do |inventory_item| %>
+          <div class="checkboxItem">
+            <input name="inventory_items[]" type="checkbox" value="<%= inventory_item.id %>">
+              <!-- <input class="inputQuantity" type="text"></input> -->
+              <%= inventory_item.name %>
+            </input>
+          </div>
+        <% end %>
+      </div>
+      <input class="mainButton" type="submit" value="MAKE ORDER!">
+    </form>
+  </section>
+  <section class="orders row">
+      <h3 class="subTitle">Display Order</h3>
+        <% @parties.each do |party| %>
+          <div class="table menuText"><p>Table <%= party.table_number %>:</p>
 
-  <div>
-    <h3 class="subTitle">Display Order</h3>
+            <% party.orders.each do |order| %>
+              <div>Order: <%= order.inventory_item.name %> - <span class="price"><%= order.inventory_item.price %></span>$</div>
+            <% end %>
+            <div class="total menuText"> Total: </div>
+            <form action="/parties/<%= party.id %>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button class="tableButton" type="submit" >Transaction Complete</button>
+            </form>
+          </div>
+        <% end %>
+  </section>
+
+  <section class="parties row">
+    <h3 class="subTitle"> Parties </h3>
+    <form action="/parties" method="post">
+      <input class="inventoryInput" type="text" name="party[table_number]" placeholder='...table number'>
+      <input class="inventoryInput" type="text" name="party[number_of_guests]" placeholder='...number of guests'>
+      <input class="mainButton" type="submit" value="Create Party">
+    </form>
     <ul>
-      <% @orders.each do |order| %>
-        <li class="tableNumber<%=order.party.table_number%>">
-          <div class="displayText"><%= order.inventory_item.name %> - <%=order.party.table_number%></div>
-          <form action="/orders/<%= order.id %>" method="post">
+      <% @parties.each do |party| %>
+        <li class="partyList">
+          <div class="menuText"> Table Number: <%= party.table_number %> </div>
+          <div class="menuText"> Number of Guests:  <%= party.number_of_guests %></div>
+          <a class="btn" href="parties/<%= party.id %>/edit"><button class="tableButton"> Edit</button></a>
+          <form action="/parties/<%= party.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button class="mainButton" type="submit">Remove</button>
+          </form>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="inventoryItems row">
+    <h3 class="subTitle"> Menu Items </h3>
+    <form action="/inventory_items" method="post">
+      <input class="inventoryInput" type="text" name="inventory_item[name]" placeholder='...name'>
+      <input class="inventoryInput" type="text" name="inventory_item[cuisine_type]" placeholder='...cuisine type'>
+      <input class="inventoryInput" type="text" name="inventory_item[nutritional_value]" placeholder='...nutritional_value'>
+      <input class="inventoryInput" type="text" name="inventory_item[description]" placeholder='...description'>
+      <input class="inventoryInput" type="text" name="inventory_item[price]" placeholder='...enter price'>
+
+      <input class="mainButton" type="submit" value="Request Item!">
+    </form>
+    <ul>
+      <% @inventory_items.each do |inventory_item| %>
+        <li class="inventoryList">
+          <div class="menuText"> Item Name:  <%= inventory_item.name %> </div>
+          <div class="menuText"> Cuisine Type:  <%= inventory_item.cuisine_type %> </div>
+          <div class="menuText"> Nutritional Value:  <%= inventory_item.nutritional_value %> </div>
+          <div class="menuText"> Item Description:  <%= inventory_item.description %> </div>
+          <div class="menuText"> Price:  <%= inventory_item.price %> $ </div>
+          <button class="tableButton" href="inventory_items/<%= inventory_item.id %>/edit"> Edit </button>
+          <form action="/inventory_items/<%= inventory_item.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
             <button class="mainButton" type="submit" >Remove</button>
           </form>
         </li>
       <% end %>
     </ul>
-  </div>
-</section>
-
-<section class="parties">
-  <h3 class="subTitle"> Parties </h3>
-  <form action="/parties" method="post">
-    <input class="inventoryInput" type="text" name="party[table_number]" placeholder='...table number'>
-    <input class="inventoryInput" type="text" name="party[number_of_guests]" placeholder='...number of guests'>
-    <input class="mainButton" type="submit" value="Create Party">
-  </form>
-  <ul>
-    <% @parties.each do |party| %>
-      <li class="partyList">
-        <div class="displayText"> Table Number: <%= party.table_number %> </div>
-        <div class="displayText"> Number of Guests:  <%= party.number_of_guests %></div>
-        <a class="displayText" href="parties/<%= party.id %>/edit"> Edit </a>
-        <form action="/parties/<%= party.id %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <button class="mainButton" type="submit">Remove</button>
-        </form>
-      </li>
-    <% end %>
-  </ul>
-</section>
-
-<section class="inventoryItems">
-  <h3 class="subTitle"> Inventory Items </h3>
-  <form action="/inventory_items" method="post">
-    <input class="inventoryInput" type="text" name="inventory_item[name]" placeholder='...name'>
-    <input class="inventoryInput" type="text" name="inventory_item[cuisine_type]" placeholder='...cuisine type'>
-    <input class="inventoryInput" type="text" name="inventory_item[nutritional_value]" placeholder='...nutritional_value'>
-    <input class="inventoryInput" type="text" name="inventory_item[description]" placeholder='...description'>
-    <input class="inventoryInput" type="text" name="inventory_item[price]" placeholder='...enter price'>
-
-    <input class="mainButton" type="submit" value="Request Item!">
-  </form>
-  <ul>
-    <% @inventory_items.each do |inventory_item| %>
-      <li class="inventoryList">
-        <div class="displayText"> Item Name:  <%= inventory_item.name %> </div>
-        <div class="displayText"> Cuisine Type:  <%= inventory_item.cuisine_type %> </div>
-        <div class="displayText"> Nutritional Value:  <%= inventory_item.nutritional_value %> </div>
-        <div class="displayText"> Item Description:  <%= inventory_item.description %> </div>
-        <div class="displayText"> Price:  <%= inventory_item.price %> $ </div>
-        <a class="displayText" href="inventory_items/<%= inventory_item.id %>/edit"> Edit </a>
-        <form action="/inventory_items/<%= inventory_item.id %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <button class="mainButton" type="submit" >Remove</button>
-        </form>
-      </li>
-    <% end %>
-  </ul>
-</section>
+  </section>
+ </div> <!--end of container div -->

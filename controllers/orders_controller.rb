@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   get '/' do
     # binding.pry
     @orders = Order.all
+    @parties = Party.all
     erb :'orders/index'
   end
 
@@ -41,7 +42,7 @@ class OrdersController < ApplicationController
   put '/:id' do
     order = Order.find(params[:id])
     order.update(params[:order])
-    redirect "/orders/#{order.id}"
+    redirect "/"
   end
 
   delete '/:id' do

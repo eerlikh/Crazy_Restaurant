@@ -27,7 +27,7 @@ class InventoryItemsController < ApplicationController
   put '/:id' do
     inventory_item = InventoryItem.find(params[:id])
     inventory_item.update(params[:inventory_item])
-    redirect "/inventory_items"
+    redirect "/"
   end
 
   # '/inventory_items/:id'

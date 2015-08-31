@@ -1,5 +1,8 @@
+/*HTML ELEMENT STYLES*/
 body {
-  background-color: lightblue;
+  background-image: url("Crazy Restaurant.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 form {
@@ -7,7 +10,7 @@ form {
 }
 
 blockquote, dl, figure, form, ol, p, pre, table, ul {
-     margin-bottom: 0px;
+   margin-bottom: 0px;
 }
 
 li {
@@ -15,66 +18,61 @@ li {
   margin-bottom: 0px;
 }
 
-input[type="checkbox"]{
-  width: 45px;
-  height: 45px;
-  margin-bottom: 0px;
+input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 10px;
 }
-
-/*input[type="checkbox"]{
-cursor: pointer;
--webkit-appearance: none;
-appearance: none;
-background: #34495E;
-border-radius: 1px;
-box-sizing: border-box;
-position: relative;
-box-sizing: content-box ;
-width: 30px;
-height: 30px;
-border-width: 0;
-transition: all .3s linear;
-}*/
-/*
-input[type="checkbox"]:checked{
-  background-color: #2ECC71;
-}
-
-input[type="checkbox"]:focus{
-  outline: 0 none;
-  box-shadow: none;
-}*/
-
+/*GENERAL STYLING*/
 .mainTitle {
   background-color: gold;
-  color: red;
-  font-family: 'Pacifico', cursive;
+  color: black;
+  font-size: 65px;
+  font-family: 'KBFunHouse';
+  text-align: center;
   height: auto;
   width: auto;
-  padding: 5px 20px 20px 25px;
-  border: 6px solid red;
 }
 
 .mainButton, input[type=button], input[type=reset], input[type=submit] {
   background-color: white;
-  margin-left: 25px;
   border-radius: 0px;
+  margin-left: 25px;
   width: 250px;
   height: 50px;
 }
 
 .menuText {
-    font-size: 35px;
-    margin-left: 25px;
-    vertical-align: top;
+  font-size: 20px;
+  vertical-align: top;
 }
-.displayText {
-  margin-left: 25px;
+
+.navBarButton {
+  font-family: 'Helvetica';
+  background-color: gold;
+  color: black;
+  float: right;
+  border-radius: 10px 10px 0px 0px;
+  text-decoration: none;
+  padding: 5px 10px 3px 10px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.navBarButton:hover {
+  font-family: 'Helvetica';
+  background-color: red;
+  color: gold;
+  float: right;
+  border-radius: 10px 10px 0px 0px;
+  text-decoration: none;
+  padding: 5px 10px 3px 10px;
+  margin-left: 10px;
+  font-size: 20px;
 }
 
 .subTitle {
   background-color: gold;
-  border-right: 1px solid black;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   padding: 10px 24px;
@@ -84,29 +82,41 @@ input[type="checkbox"]:focus{
   width: 40px;
 }
 
-.rightSpace{
+.checkboxItem {
   margin-right: 30px;
   display: inline;
   vertical-align: top;
+  display: inline-block;
+}
 
+.blackBlock {
+  width: 40px;
+  height: 100px;
+  background-color: black;
 }
 /*ul.orderDisplay li:nth-child(even) {
   background-color: pink;
 }*/
 
+
+/*MAIN INDEX PAGE STYLING*/
 .inventoryItems {
-  background-color: #DAC6F0;
+  background-color: Ivory;
   float: left;
-  width: 320px;
+  width: 100%
 }
 
 .inventoryInput {
-  margin: 0px 25px;
+  margin: 0px 0px 20px 25px;
   border-radius: 0px;
 }
 
 .inventoryList {
-
+  background-color: Lavender;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  padding: 10px;
 }
 
 .inventoryListItem {
@@ -116,15 +126,18 @@ input[type="checkbox"]:focus{
 }
 
 .parties {
-  background-color: blue;
+  background-color: Ivory;
   float: left;
-  width: 320px;
+  width: 100%;
 
 }
 
 .partyList {
-
-}
+  background-color: Lavender;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  padding: 10px;}
 
 .partyListItem {
   background-color: yellow;
@@ -132,12 +145,16 @@ input[type="checkbox"]:focus{
 }
 
 .orders {
-  background-color: #BDBDBD;
+  background-color: Ivory;
   width: 100%
 }
 
 .orderList {
-
+  background-color: Lavender;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  padding: 10px;
 }
 
 .orderListItem {
@@ -145,29 +162,17 @@ input[type="checkbox"]:focus{
   float: left;
 }
 
-/*----- my tables ------*/
-
-.tableNumber1{
+.table {
+  background-color: Lavender;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+.tableButton, input[type=button], input[type=reset], input[type=submit] {
   background-color: white;
-}
-.tableNumber2{
-  background-color: red;
-}
-.tableNumber3{
-  background-color: blue;
-}
-.tableNumber4{
-  background-color: green;
-}
-.tableNumber5{
-  background-color: pink;
-}
-.tableNumber6{
-  background-color: purple;
-}
-.tableNumber7{
-  background-color: cyan;
-}
-.tableNumber8{
-  background-color: gold;
+  border-radius: 0px;
+  width: 250px;
+  height: 50px;
+  margin-top: 10px;
 }

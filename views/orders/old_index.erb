@@ -1,0 +1,27 @@
+<!-- <div class="container">
+  <h2 class="mainTitle"> Crazy Restaurant
+    <a class="displayText" href="orders"> Chef Screen </a>
+    <a class="displayText" href="/"> Wait Staff Screen </a>
+  </h2>
+  <section class="orders row">
+  <div>
+    <h3 class="subTitle">Display Order</h3>
+    <a href="/orders/new">New Orders</a>
+    <ul>
+      <% @orders.each do |order| %>
+        <li class="tableNumber<%=order.party.table_number%>">
+          <div class="displayText">
+            Table:
+            <%=order.party.table_number%> -
+            <%= order.inventory_item.name %> -
+            <%= order.inventory_item.price %> $
+          </div>
+          <form action="/orders/<%= order.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button class="mainButton" type="submit" >Remove</button>
+          </form>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div> -->

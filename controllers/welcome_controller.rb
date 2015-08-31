@@ -5,7 +5,9 @@ class WelcomeController < ApplicationController
     @parties = Party.all
     @inventory_items = InventoryItem.all
     # binding.pry
+    #@orders.select { |order| order.party_id = party.table_number }
     #@orders.select { |order| order.party_id = 5 }
+
     erb :index
   end
 

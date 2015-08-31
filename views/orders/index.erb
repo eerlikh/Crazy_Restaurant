@@ -1,13 +1,25 @@
-<h3>All those Orders!</h3>
+<div class="container">
+  <div class="row">
+    <h2 class="mainTitle"> Crazy Restaurant</h2>
+  </div>
+  <div class="row">
+    <a class="navBarButton" href="orders"> Chef Screen </a>
+    <a class="navBarButton" href="/"> Wait Staff Screen </a>
+  </div>
+  <section class="orders row">
+      <h3 class="subTitle">Display Order</h3>
+        <% @parties.each do |party| %>
+          <div class="table menuText"><p>Table <%= party.table_number %>:</p>
 
-<a href="/orders/new">New Orders</a>
-
-<ul>
-
-  <% @orders.each do |order| %>
-    <li>
-      <%= order.inventory_item.name %> - <%= order.party.table_number %>
-    </li>
-  <% end %>
-
-</ul>
+            <% party.orders.each do |order| %>
+              <div>Order: <%= order.inventory_item.name %> - <span class="price"><%= order.inventory_item.price %></span>$</div>
+            <% end %>
+            <div class="total menuText"> Total: </div>
+            <form action="/parties/<%= party.id %>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button class="tableButton" type="submit" >Transaction Complete</button>
+            </form>
+          </div>
+        <% end %>
+  </section>
+</div>
